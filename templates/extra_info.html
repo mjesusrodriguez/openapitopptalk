@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}
+Extra Info - Transform OpenAPI specification in PPTalk Service Specification
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <!--<img src="{{ url_for('static', filename='images/bot.png') }}" alt="Logo" class="logo">-->
+    <h1 class="text-center">Transform OpenAPI specification in PPTalk Service Specification</h1>
+    <h2 class="text-center">Additional Information</h2>
+    <p class="lead text-center">Add this additional information about your restaurant to help the system find and classify it better.</p>
+    <form action="/extra_info" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="food_type">Food Type:</label>
+            <select class="form-control" id="food_type" name="food_type">
+                <option value="afghan">Afghan</option>
+                <option value="african">African</option>
+                <option value="afternoon tea">Afternoon Tea</option>
+                <option value="asian oriental">Asian Oriental</option>
+                <option value="australasian">Australasian</option>
+                <option value="australian">Australian</option>
+                <option value="austrian">Austrian</option>
+                <option value="barbeque">Barbeque</option>
+                <option value="basque">Basque</option>
+                <option value="belgian">Belgian</option>
+                <option value="bistro">Bistro</option>
+                <option value="brazilian">Brazilian</option>
+                <option value="british">British</option>
+                <option value="canapes">Canapes</option>
+                <option value="cantonese">Cantonese</option>
+                <option value="caribbean">Caribbean</option>
+                <option value="catalan">Catalan</option>
+                <option value="chinese">Chinese</option>
+                <option value="christmas">Christmas</option>
+                <option value="corsica">Corsica</option>
+                <option value="creative">Creative</option>
+                <option value="crossover">Crossover</option>
+                <option value="cuban">Cuban</option>
+                <option value="danish">Danish</option>
+                <option value="eastern european">Eastern European</option>
+                <option value="english">English</option>
+                <option value="eritrean">Eritrean</option>
+                <option value="european">European</option>
+                <option value="french">French</option>
+                <option value="fusion">Fusion</option>
+                <option value="gastropub">Gastropub</option>
+                <option value="german">German</option>
+                <option value="greek">Greek</option>
+                <option value="halal">Halal</option>
+                <option value="hungarian">Hungarian</option>
+                <option value="indian">Indian</option>
+                <option value="indonesian">Indonesian</option>
+                <option value="international">International</option>
+                <option value="irish">Irish</option>
+                <option value="italian">Italian</option>
+                <option value="jamaican">Jamaican</option>
+                <option value="japanese">Japanese</option>
+                <option value="korean">Korean</option>
+                <option value="kosher">Kosher</option>
+                <option value="latin american">Latin American</option>
+                <option value="lebanese">Lebanese</option>
+                <option value="light bites">Light Bites</option>
+                <option value="malaysian">Malaysian</option>
+                <option value="mediterranean">Mediterranean</option>
+                <option value="mexican">Mexican</option>
+                <option value="middle eastern">Middle Eastern</option>
+                <option value="modern american">Modern American</option>
+                <option value="modern eclectic">Modern Eclectic</option>
+                <option value="modern european">Modern European</option>
+                <option value="modern global">Modern Global</option>
+                <option value="molecular gastronomy">Molecular Gastronomy</option>
+                <option value="moroccan">Moroccan</option>
+                <option value="new zealand">New Zealand</option>
+                <option value="north african">North African</option>
+                <option value="north american">North American</option>
+                <option value="north indian">North Indian</option>
+                <option value="northern european">Northern European</option>
+                <option value="panasian">Panasian</option>
+                <option value="persian">Persian</option>
+                <option value="polish">Polish</option>
+                <option value="polynesian">Polynesian</option>
+                <option value="portuguese">Portuguese</option>
+                <option value="romanian">Romanian</option>
+                <option value="russian">Russian</option>
+                <option value="scandinavian">Scandinavian</option>
+                <option value="scottish">Scottish</option>
+                <option value="seafood">Seafood</option>
+                <option value="singaporean">Singaporean</option>
+                <option value="south african">South African</option>
+                <option value="south indian">South Indian</option>
+                <option value="spanish">Spanish</option>
+                <option value="sri lankan">Sri Lankan</option>
+                <option value="steakhouse">Steakhouse</option>
+                <option value="swedish">Swedish</option>
+                <option value="swiss">Swiss</option>
+                <option value="thai">Thai</option>
+                <option value="the americas">The Americas</option>
+                <option value="traditional">Traditional</option>
+                <option value="turkish">Turkish</option>
+                <option value="tuscan">Tuscan</option>
+                <option value="unusual">Unusual</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="venetian">Venetian</option>
+                <option value="vietnamese">Vietnamese</option>
+                <option value="welsh">Welsh</option>
+                <option value="world">World</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="price_range">Price Range:</label>
+            <select class="form-control" id="price_range" name="price_range">
+                <option value="cheap">Cheap</option>
+                <option value="moderate">Moderate</option>
+                <option value="expensive">Expensive</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

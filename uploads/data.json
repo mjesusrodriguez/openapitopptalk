@@ -1,0 +1,270 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Restaurant Reservation API",
+    "version": "1.0.0",
+    "description": "API for making restaurant reservations."
+  },
+  "servers": [
+    {
+      "url": "https://api.restaurant.com/v1"
+    }
+  ],
+  "paths": {
+    "/restaurants": {
+      "get": {
+        "summary": "Get a list of restaurants",
+        "operationId": "getRestaurants",
+        "parameters": [
+          {
+            "name": "city",
+            "in": "query",
+            "description": "City where the restaurant is located",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cuisine",
+            "in": "query",
+            "description": "Type of cuisine",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of restaurants",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Restaurant"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/restaurants/{restaurantId}": {
+      "get": {
+        "summary": "Get details of a specific restaurant",
+        "operationId": "getRestaurantById",
+        "parameters": [
+          {
+            "name": "restaurantId",
+            "in": "path",
+            "description": "ID of the restaurant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details of the restaurant",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Restaurant"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/restaurants/{restaurantId}/reviews": {
+      "get": {
+        "summary": "Get reviews of a specific restaurant",
+        "operationId": "getRestaurantReviews",
+        "parameters": [
+          {
+            "name": "restaurantId",
+            "in": "path",
+            "description": "ID of the restaurant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of reviews",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Review"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a review for a specific restaurant",
+        "operationId": "addRestaurantReview",
+        "parameters": [
+          {
+            "name": "restaurantId",
+            "in": "path",
+            "description": "ID of the restaurant",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Review to add",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Review"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Review added successfully"
+          }
+        }
+      }
+    },
+    "/bookrestaurant": {
+      "post": {
+        "summary": "Book a table at a restaurant",
+        "operationId": "bookRestaurant",
+        "requestBody": {
+          "description": "Booking details",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Booking"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Booking created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookingConfirmation"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Restaurant": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "cuisine": {
+            "type": "string"
+          },
+          "rating": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "Review": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string"
+          },
+          "rating": {
+            "type": "number",
+            "format": "float"
+          },
+          "comment": {
+            "type": "string"
+          }
+        }
+      },
+      "Booking": {
+        "type": "object",
+        "properties": {
+          "restaurantId": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "time": {
+            "type": "string",
+            "format": "time"
+          },
+          "partySize": {
+            "type": "integer"
+          }
+        }
+      },
+      "BookingConfirmation": {
+        "type": "object",
+        "properties": {
+          "bookingId": {
+            "type": "string"
+          },
+          "restaurantId": {
+            "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "time": {
+            "type": "string",
+            "format": "time"
+          },
+          "partySize": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+View Service - Transform OpenAPI specification in PPTalk Service Specification
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">{{ service.info.title }}</h1>
+    <pre>{{ service | tojson(indent=2) }}</pre>
+    <a href="{{ url_for('my_services') }}" class="btn btn-secondary">Back to My Services</a>
+</div>
+{% endblock %}

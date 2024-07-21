@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+Specification Summary - Create an OpenAPI Service Specification
+{% endblock %}
+
+{% block content %}
+<div class="spec">
+    <!--<img src="{{ url_for('static', filename='images/bot.png') }}" alt="Logo" class="logo">-->
+    <h1 class="text-center mt-5">Specification Summary</h1>
+    <div class="btn-container text-center">
+        <form action="/download_spec" method="get" style="display:inline;">
+            <button type="submit" class="btn btn-success">Download JSON</button>
+        </form>
+        <form action="/transform_to_pptalk" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-info">Transform to PPTalk Service</button>
+        </form>
+        <a href="#" class="btn btn-primary">Copy</a>
+    </div>
+    <pre>{{ spec | tojson(indent=2) }}</pre>
+</div>
+{% endblock %}

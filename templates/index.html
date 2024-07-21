@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+Transform OpenAPI specification in PPTalk Service Specification
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <!--<img src="{{ url_for('static', filename='images/bot.png') }}" alt="Logo" class="logo">-->
+    <h1>Transform OpenAPI specification in PPTalk Service Specification</h1>
+    <p class="lead">This application transforms an OpenAPI Specification into a PPTalk Service Specification. Upload a JSON file with the service specification and let's begin!</p>
+    <h2>Upload JSON File</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data" class="mt-4">
+        <div class="form-group">
+            <input type="file" name="file" accept=".json" class="form-control-file">
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+    <hr>
+    <p class="lead">Or create a new OpenAPI Specification:</p>
+    <a href="{{ url_for('create_spec') }}" class="btn btn-secondary">Create New Specification</a>
+</div>
+{% endblock %}

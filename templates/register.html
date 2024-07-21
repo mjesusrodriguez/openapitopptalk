@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register - Transform OpenAPI specification in PPTalk Service Specification
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <!--<img src="{{ url_for('static', filename='images/bot.png') }}" alt="Logo" class="logo">-->
+        <h1>Register</h1>
+        <form method="post" class="mt-4">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <hr>
+        <p class="lead">Already have an account? <a href="{{ url_for('login') }}">Login here</a>.</p>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-warning mt-4">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+</div>
+{% endblock %}

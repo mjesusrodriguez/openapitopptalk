@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Parameters - Transform OpenAPI specification in PPTalk Service Specification
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <!--<img src="{{ url_for('static', filename='images/bot.png') }}" alt="Logo" class="logo">-->
+    <h1>Add Parameters</h1>
+    <form action="{{ url_for('add_parameters') }}" method="post" class="mt-4 text-left">
+        <div class="form-group">
+            <label for="name">Parameter Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+            <small class="form-text text-muted">Example: city</small>
+        </div>
+        <div class="form-group">
+            <label for="in">Parameter Location</label>
+            <select class="form-control" id="in" name="in" required>
+                <option value="query">Query</option>
+                <option value="header">Header</option>
+                <option value="path">Path</option>
+                <option value="cookie">Cookie</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="type">Parameter Type</label>
+            <select class="form-control" id="type" name="type" required>
+                <option value="string">String</option>
+                <option value="number">Number</option>
+                <option value="integer">Integer</option>
+                <option value="boolean">Boolean</option>
+                <option value="array">Array</option>
+                <option value="object">Object</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="enum">Enum Values (comma separated)</label>
+            <input type="text" class="form-control" id="enum" name="enum">
+            <small class="form-text text-muted">Example: italian, chinese, mexican. Leave empty if not applicable.</small>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+            <small class="form-text text-muted">Example: City where the restaurant is located.</small>
+        </div>
+        <div class="btn-container">
+            <button type="submit" class="btn btn-primary">Add Parameter</button>
+            <a href="{{ url_for('add_endpoint') }}" class="btn btn-success">Finish</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

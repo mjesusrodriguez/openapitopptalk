@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add Tags - Transform OpenAPI specification in PPTalk Service Specification
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <!--<img src="{{ url_for('static', filename='images/bot.png') }}" alt="Logo" class="logo">-->
+    <h1>Transform OpenAPI specification in PPTalk Service Specification</h1>
+    <h2>Add tags</h2>
+    <p class="lead">Add tags that represent your restaurant or features you can mention about it, separated by commas, for example, ‘vegan, italian, petfriendly, terrace’</p>
+    <form action="/add_tags" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="tags">Tags:</label>
+            <input type="text" class="form-control" id="tags" name="tags" placeholder="ej. restaurante, comida, reserva">
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar Tags</button>
+    </form>
+</div>
+{% endblock %}

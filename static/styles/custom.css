@@ -1,0 +1,247 @@
+body {
+    background-color: #f8f9fa; /* Fondo gris claro */
+}
+
+.container {
+    max-width: 800px;
+    margin-top: 50px;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #97D712; /* Verde */
+}
+
+p.lead {
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+a {
+    color: #b5b8ae; /* Color de los enlaces */
+}
+
+a:hover {
+    color: #97D712; /* Color de los enlaces al pasar el cursor */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.btn-container {
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input[type="file"],
+.form-group input[type="text"],
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.form-group button,
+.btn-primary {
+    background-color: #4D5A2F !important; /* Verde más oscuro */
+    border-color: #4D5A2F !important; /* Verde más oscuro */
+    color: #ffffff !important;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group button:hover,
+.btn-primary:hover {
+    background-color: #97D712 !important; /* Verde */
+    border-color: #97D712 !important; /* Verde */
+}
+
+pre {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    white-space: pre-wrap; /* Para permitir el salto de línea */
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+.checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+
+/* Ocultar el input real */
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Crear un checkmark personalizado */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+/* Cuando el checkbox está marcado, agregar un background verde */
+.checkbox input:checked ~ .checkmark {
+    background-color: #97D712;
+}
+
+/* Crear el indicador del checkmark */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Mostrar el checkmark cuando está marcado */
+.checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Estilos del checkmark */
+.checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* custom.css */
+
+.navbar-custom {
+    background-color: #97D712; /* Verde */
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand {
+    color: white !important;
+}
+
+.navbar-custom .dropdown-menu {
+    background-color: white;
+    color: #97D712;
+}
+
+.navbar-custom .dropdown-menu .dropdown-item {
+    color: #97D712 !important;
+}
+
+.navbar-custom .dropdown-menu .dropdown-item:hover {
+    background-color: #e9ecef;
+    color: #97D712 !important;
+}
+
+pre {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    white-space: pre-wrap; /* Para permitir el salto de línea */
+}
+.buttons {
+    margin-bottom: 20px;
+}
+.spec {
+    max-width: 90%; /* Aumentar el ancho máximo */
+    margin: auto;
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+.logo {
+    display: block;
+    margin: 20px auto;
+    max-width: 150px;
+}
+
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #97D712;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.d-none {
+    display: none;
+}

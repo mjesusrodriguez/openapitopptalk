@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+Transform OpenAPI specification in PPTalk Service Specification
+{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="mt-5">OpenAPI Specification Generator</h1>
+    <p class="lead">This application helps you to create or upload an OpenAPI specification.</p>
+    <div class="mt-3">
+        <a href="{{ url_for('create_spec') }}" class="btn btn-primary">Create New Specification</a>
+        <a href="{{ url_for('uploadopenapi') }}" class="btn btn-secondary">Upload Existing Specification</a>
+    </div>
+</div>
+{% endblock %}

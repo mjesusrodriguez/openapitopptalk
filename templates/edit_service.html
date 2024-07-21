@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit Service - Transform OpenAPI specification in PPTalk Service Specification
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Edit {{ service.info.title }}</h1>
+    <form action="{{ url_for('edit_service', service_id=service['_id']) }}" method="post" class="mt-3">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ service['info']['title'] | e }}" required>
+        </div>
+        <div class="form-group">
+            <label for="version">Version</label>
+            <input type="text" class="form-control" id="version" name="version" value="{{ service['info']['version'] | e }}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3" required>{{ service['info']['description'] | e }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="paths">Paths (JSON format)</label>
+            <textarea class="form-control" id="paths" name="paths" rows="10" required>{{ service['paths'] | tojson(indent=4) | safe }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="components">Components (JSON format)</label>
+            <textarea class="form-control" id="components" name="components" rows="10" required>{{ service['components'] | tojson(indent=4) | safe }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="{{ url_for('my_services') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
