@@ -321,7 +321,8 @@ def generate_questions(parameters):
 
 def call_openai_api(parameter_name):
     domain = "restaurant"
-    prompt = f"Generate a question to ask a user for the parameter '{parameter_name}' in the {domain} domain."
+    #prompt = f"Generate a question to ask a user for the parameter '{parameter_name}' in the {domain} domain."
+    prompt = "I am developing a chatbot that users can employ to bookrestaurant in the domain "+domain+". Generate just a question without format that the chatbot can use to ask the user for "+parameter_name
     # Generate a response
     completion = client.completions.create(
         model=model_engine,
