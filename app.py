@@ -320,7 +320,8 @@ def generate_questions(parameters):
     return questions
 
 def call_openai_api(parameter_name):
-    prompt = f"Generate a question to ask a user for the parameter '{parameter_name}'."
+    domain = "restaurant"
+    prompt = f"Generate a question to ask a user for the parameter '{parameter_name}' in the {domain} domain."
     # Generate a response
     completion = client.completions.create(
         model=model_engine,
